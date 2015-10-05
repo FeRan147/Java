@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.text.*;
+public class Task8 {
+	public static void main(String [] args) {
+		Scanner inputStr = new Scanner(System.in);
+		System.out.println("Введите дату в формате dd.mm.yyyy: ");
+		String dateStr = inputStr.nextLine();
+		System.out.println(isValid(dateStr));
+		inputStr.close();
+	}
+	private static final DateFormat DATA_FORMAT = new SimpleDateFormat("dd.mm.yyyy");
+	static {
+		DATA_FORMAT.setLenient(true);
+	}
+	private static String isValid(String date) {
+		try {
+			DATA_FORMAT.format(DATA_FORMAT.parse(date)).equals(date);
+			int dayOfWeek = DateFormat.DAY_OF_WEEK_FIELD;
+			String[] dayNames = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+			return dayNames[dayOfWeek];
+		} catch (ParseException ex) {
+			return "Некорректна введена дата!";
+		}
+	}
+}

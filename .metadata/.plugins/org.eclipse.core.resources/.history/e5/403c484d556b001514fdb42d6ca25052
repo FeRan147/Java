@@ -1,0 +1,23 @@
+import java.util.*;
+import java.text.*;
+public class Task8 {
+	public static void main(String [] args) {
+		Scanner inputStr = new Scanner(System.in);
+		System.out.println("Введите дату в формате dd.mm.yyyy: ");
+		String dateStr = inputStr.nextLine();
+		Formatter f = new Formatter();
+		f.format("%tA", isValid(dateStr));
+		System.out.println(f);
+		inputStr.close();
+	}
+	static SimpleDateFormat formatDate = new SimpleDateFormat("dd.MM.yyyy");
+	private static Date isValid(String date) {
+		try {
+			Date checkDate = formatDate.parse(date);
+			return checkDate;
+		} catch (ParseException ex) {
+			System.out.println("Дата введена некорректно!");
+			return null;
+		}
+	}
+}
