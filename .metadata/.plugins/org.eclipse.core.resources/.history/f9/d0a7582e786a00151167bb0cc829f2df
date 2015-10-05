@@ -1,0 +1,28 @@
+import java.util.*;
+public class Task7 {
+	public static void main(String [] args) {
+		Scanner inputStr = new Scanner(System.in);
+		GregorianCalendar tempCalendar = (GregorianCalendar) Calendar.getInstance();
+		Formatter f = new Formatter();
+		f.format("%tA", tempCalendar);
+		System.out.println(f);
+		String numberStr;
+		String regexStr = "^?\\d+$";
+		System.out.println("Ââåäèòå íîìåğ äíÿ íåäåëè: ");
+		numberStr = inputStr.nextLine();
+		if(numberStr.matches(regexStr) == true) {
+			int number = Integer.parseInt(numberStr);
+			if(number > 0 && number < 8) {
+				Formatter f1 = new Formatter();
+				f1.format("%tA",number);
+				System.out.println(f1);
+				//System.out.println(tempCalendar.);
+			} else {
+				System.out.println("Äíÿ íåäåëè ñ òàêèì íîìåğîì íå ñóùåñòâóåò!");
+			}
+		} else {
+			System.out.println("Ââåäåííàÿ çàïèñü íåêîğğåêòíà!");
+		}
+		inputStr.close();
+	}
+}
