@@ -1,0 +1,90 @@
+//* Только начал не доделана/
+
+import java.util.ArrayList;
+import java.util.Date;
+
+public class BookHT {
+	public static void main(String [] args) {	
+		Book tempBook = new Book();
+		tempBook.setId(1);
+		tempBook.setAuthor("Пушкин");
+		tempBook.setTitle("Стихи");
+		Library myLibrary = new Library();
+		myLibrary.addNewBook(tempBook);
+	}
+}
+
+class Book {
+	private long id;
+	private String title;
+	private String author;
+	private String publisher;
+	private Date publicationDate;
+	private int pageCount;
+	private int price;
+	private String bindingType;
+	
+	public void setId(long newId) {
+		this.id = newId;
+	}
+	public void setTitle(String newTitle) {
+		this.title = newTitle;
+	}
+	public void setAuthor(String newAuthor) {
+		this.author = newAuthor;
+	}
+	public void setPublisher(String newPublisher) {
+		this.publisher = newPublisher;
+	}
+	public void setPublicationDate(Date newPublicationDate) {
+		this.publicationDate = newPublicationDate;
+	}
+	public void setPageCount(int newPageCount) {
+		this.pageCount = newPageCount;
+	}
+	public void setPrice(int newPrice) {
+		this.price = newPrice;
+	}
+	public void setBindingType(String newBindingType) {
+		this.bindingType = newBindingType;
+	}
+	
+	public long getId() {
+		return this.id;
+	}
+	public String setTitle() {
+		return this.title;
+	}
+	public String setAuthor() {
+		return this.author;
+	}
+	public String setPublisher() {
+		return this.publisher;
+	}
+	public Date setPublicationDate() {
+		return this.publicationDate;
+	}
+	public int setPageCount() {
+		return this.pageCount;
+	}
+	public int setPrice() {
+		return this.price;
+	}
+	public String setBindingType() {
+		return this.bindingType;
+	}
+}
+
+class Library {
+	static ArrayList<Book> booksLibrary;
+	
+	Library() {
+		booksLibrary = new ArrayList<Book>();
+    }
+	
+	public void addNewBook(Book newBook) {
+		booksLibrary.add(newBook);
+	}
+	
+	
+}

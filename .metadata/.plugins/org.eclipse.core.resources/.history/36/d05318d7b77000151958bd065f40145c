@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Task10 {
+	public static void main(String [] args) {
+		Scanner inputStr = new Scanner(System.in);
+		Random random = new Random();
+		System.out.println("¬ведите натуральное число: ");
+		int n = Integer.valueOf(inputStr.nextLine());
+		int masRandom[][] = new int[n][n];
+		for(int i = 0; i < masRandom.length; i++) {
+			for(int j = 0; j < masRandom.length; j++) {
+				masRandom[i][j] = random.nextInt(100);
+			}
+		}
+		for(int i = 0; i < masRandom.length; i++) {
+			for(int j = 0; j < masRandom.length; j++) {
+				System.out.println(masRandom[i][j] + " | ");
+			}
+		}
+		System.out.println();
+		inputStr.close();
+	}
+}

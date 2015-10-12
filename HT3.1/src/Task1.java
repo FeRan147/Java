@@ -1,0 +1,14 @@
+import java.util.Random;
+public class Task1 {
+	public static void main(String [] args) {
+		float mas[] = new float[10];
+		float averageSum = 0;
+		Random random = new Random();
+		for(int i = 0; i < 10; i++) {
+			mas[i] = random.nextInt()*10;
+			System.out.print(mas[i] + " | ");
+			averageSum += mas[i];
+		}
+		System.out.println("\naverage value =  " + averageSum / mas.length);
+	}
+}
