@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Task1 {
+	public static void main(String[] args) {
+
+		System.out.println("Enter text string");
+		Scanner sc1 = new Scanner(System.in);
+		String text = sc1.nextLine();
+		String[] strArr = text.split(" ");
+
+		System.out.println("Enter number");
+		int n = 0;
+		try {
+			n = sc1.nextInt();
+		} catch (InputMismatchException fg) {
+			System.out.print("Not number");
+			sc1.close();
+			return;
+		}
+
+		System.out.println("Enter symbol");
+		char symbol = sc1.next().charAt(0);
+
+		for (int i = 0; i < strArr.length; i++) {
+
+			String newStrArr[] = new String[strArr.length];
+			if (strArr[i].length() > n) {
+				newStrArr[i] = strArr[i].substring(0, n) + symbol + strArr[i].substring(n + 1);
+			} else {
+				newStrArr[i] = strArr[i];
+			}
+			System.out.println(newStrArr[i]);
+		}
+		sc1.close();
+
+	}
+}

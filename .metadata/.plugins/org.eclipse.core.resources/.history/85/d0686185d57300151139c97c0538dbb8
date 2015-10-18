@@ -1,0 +1,145 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class BookHT {
+	public static void main(String[] args) {
+		Library myLibrary = new Library();
+		myLibrary.printBookArray();
+		// myLibrary.addNewBook(tempBook);
+	}
+}
+
+class Book {
+	private long id;
+	private String title;
+	private String author;
+	private String publisher;
+	private int publicationYear;
+	private int pageCount;
+	private int price;
+	private String bindingType;
+
+	Book() {
+
+	}
+
+	Book(long id, String title, String author, String publisher, int publicationYear, int pageCount, int price,
+			String bindingType) {
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
+		this.publicationYear = publicationYear;
+		this.pageCount = pageCount;
+		this.price = price;
+		this.bindingType = bindingType;
+	}
+
+	public void setId(long newId) {
+		this.id = newId;
+	}
+
+	public void setTitle(String newTitle) {
+		this.title = newTitle;
+	}
+
+	public void setAuthor(String newAuthor) {
+		this.author = newAuthor;
+	}
+
+	public void setPublisher(String newPublisher) {
+		this.publisher = newPublisher;
+	}
+
+	public void setPublicationYear(int newPublicationYear) {
+		this.publicationYear = newPublicationYear;
+	}
+
+	public void setPageCount(int newPageCount) {
+		this.pageCount = newPageCount;
+	}
+
+	public void setPrice(int newPrice) {
+		this.price = newPrice;
+	}
+
+	public void setBindingType(String newBindingType) {
+		this.bindingType = newBindingType;
+	}
+
+	public long getId() {
+		return this.id;
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+
+	public String getAuthor() {
+		return this.author;
+	}
+
+	public String getPublisher() {
+		return this.publisher;
+	}
+
+	public int getPublicationYear() {
+		return this.publicationYear;
+	}
+
+	public int getPageCount() {
+		return this.pageCount;
+	}
+
+	public int getPrice() {
+		return this.price;
+	}
+
+	public String getBindingType() {
+		return this.bindingType;
+	}
+}
+
+class Library {
+	private static ArrayList<Book> booksLibrary;
+	private static Book tempBook;
+
+	Library() {
+		booksLibrary = new ArrayList<Book>();
+		booksLibrary.add(new Book(1, "Стихи", "Пушкин", "ЭСМО", 1990, 200, 250000, "Жесткий"));
+		booksLibrary.add(new Book(2, "Рассказы", "Евтухов", "МТД", 2007, 300, 350000, "Мягкий"));
+		booksLibrary.add(new Book(3, "Поэмы", "Лермонтов", "Новый двор", 2001, 400, 400000, "Жесткий"));
+		booksLibrary.add(new Book(4, "Наука", "Айзеншпиц", "Питер", 1987, 251, 700000, "Жесткий"));
+		booksLibrary.add(new Book(5, "Физика", "Авдеев", "Калуга", 1985, 288, 576000, "Мягкий, твердая обложка"));
+		booksLibrary.add(new Book(6, "Математика", "Торопов", "ЛТД Бук", 1952, 315, 231000, "Жесткий"));
+		booksLibrary.add(new Book(7, "Психология", "Василивич", "Москва", 1999, 417, 188000, "Жесткий"));
+		booksLibrary.add(new Book(8, "Техника", "Ромахович", "Минск", 2015, 152, 673000, "Жесткий"));
+		booksLibrary
+				.add(new Book(9, "Мебель", "Трепачев", "Лучшая книга", 2009, 198, 488000, "Жесткий, мягкая обложка"));
+		booksLibrary.add(new Book(10, "Здания", "Куляшов", "Папирус", 2011, 561, 147000, "Жесткий"));
+	}
+
+	public static void addNewBook(long id, String title, String author, String publisher, int publicationYear,
+			int pageCount, int price, String bindingType) {
+		tempBook = new Book();
+		tempBook.setId(id);
+		tempBook.setTitle(title);
+		tempBook.setAuthor(author);
+		tempBook.setPublisher(publisher);
+		tempBook.setPublicationYear(publicationYear);
+		tempBook.setPageCount(pageCount);
+		tempBook.setPrice(price);
+		tempBook.setBindingType(bindingType);
+		booksLibrary.add(tempBook);
+	}
+
+	public static void printBookArray() {
+		for (Iterator<Book> i = booksLibrary.iterator(); i.hasNext();) {
+			Book item = i.next();
+			System.out.println(item.getId() + " " + item.getTitle() + " " + item.getAuthor() + " " + item.getPublisher()
+					+ " " + item.getPublicationYear() + " " + item.getPageCount() + " " + item.getPrice() + " "
+					+ item.getBindingType());
+		}
+	}
+
+}
