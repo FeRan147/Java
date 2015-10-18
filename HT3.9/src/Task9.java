@@ -1,27 +1,25 @@
-import java.util.Random;
 public class Task9 {
-	public static void main(String [] args) {
-		int mas[] = new int[10];
-		int masCopy[] = new int[10];
-		Random random = new Random();
-		for(int i = 0; i < mas.length; i++) {
-			mas[i] = random.nextInt(10);
-			System.out.print(mas[i] + " | ");
-		}
-		for(int i = 0, j = 0; i < mas.length; i++) {
-			if(mas[i] != 0) {
-				masCopy[j] = mas[i];
-				j++;
-			}
-			if(i == mas.length - 1 && j < mas.length) {
-				for(int k = j; k < mas.length; k++) {
-					masCopy[k] = 0;
-				}
-			}
-		}
-		System.out.println();
-		for(int i = 0; i < mas.length; i++) {
-			System.out.print(masCopy[i] + " | ");
-		}
+
+	 public static void main(String[] args) {
+
+	  int[] mass = new int[10];
+	  int[] massTemp = new int[10];
+	  int notZeroCounter = 0;
+	  for (int i = 0; i < mass.length; i++) {
+	   mass[i] = (int) Math.floor(Math.random() * 10);
+	   if (mass[i] != 0) {
+	    massTemp[notZeroCounter] = mass[i];
+	    notZeroCounter++;
+	   }
+	   System.out.printf("%4d", mass[i]);
+	  }
+	  System.out.println();
+	  for (int i = notZeroCounter; i < massTemp.length; i++) {
+	   massTemp[i] = 0;
+	  }
+	  for (int i = 0; i < mass.length; i++) {
+	   System.out.printf("%4d", massTemp[i]);
+	  }
+	 }
+
 	}
-}

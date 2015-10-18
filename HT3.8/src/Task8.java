@@ -14,6 +14,6 @@ public class Task8 {
 			}
 			mult *= mas[i];
 		}
-		System.out.println("\nСумма элементов до первого нуля: " + mult);
+		System.out.println("\nПроизведение элементов до первого нуля: " + mult);
 	}
 }

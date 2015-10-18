@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Task4 {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("¬ведите текст:");
+		String a = in.nextLine();
+		System.out.println("¬ведите длину слова:");
+		int len = Integer.parseInt(in.nextLine());
+		a = a.replaceAll("[BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz]{1}[a-z]{" + (len - 1) + "}", "");
+		System.out.println(a);
+		in.close();
+	}
+}
