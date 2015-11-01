@@ -1,0 +1,134 @@
+import java.util.*;
+
+public class ChefMain {
+	public static void main(String[] args) {
+		String[] menuList = { Cezar.name, Olivie.name };
+		System.out.println("Выберите салат для приготовления: ");
+		for(int i = 0; i < 2; i++) {
+			System.out.println(menuList[i] + " - " + i + 1);
+		}
+	}
+
+	public abstract class Vegetables {
+		private String name;
+		private double weight;
+		private double calory;
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public void setWeight(double weight) {
+			this.weight = weight;
+		}
+
+		public void setCalory(double calory) {
+			this.calory = calory;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public double getWeight() {
+			return weight;
+		}
+
+		public double getCalory() {
+			return calory;
+		}
+
+	}
+
+	public class Potato extends Vegetables {
+		Potato(double weight) {
+			super.setName("Картофель");
+			super.setWeight(weight);
+			super.setCalory(1.0);
+		}
+	}
+
+	public class Tomato extends Vegetables {
+		Tomato(double weight) {
+			super.setName("Помидор");
+			super.setWeight(weight);
+			super.setCalory(0.5);
+		}
+	}
+
+	public class Onion extends Vegetables {
+		Onion(double weight) {
+			super.setName("Лук");
+			super.setWeight(weight);
+			super.setCalory(0.1);
+		}
+	}
+
+	public abstract class Salad {
+		private List<Vegetables> vegetablesForSalad = new ArrayList<Vegetables>();
+
+		public void addVegetable(Vegetables vegetable) {
+			this.vegetablesForSalad.add(vegetable);
+		}
+
+		public void sortVegetables() {
+
+		}
+
+		public void calculateCalory() {
+
+		}
+	}
+
+	public class Cezar extends Salad {
+		private static final String name = "Цезарь";
+
+		public String getName() {
+			return name;
+		}
+
+		Cezar(double potatoWeight, double tomatoWeight) {
+			Vegetables potato = new Potato(potatoWeight);
+			super.addVegetable(potato);
+			Vegetables tomato = new Tomato(tomatoWeight);
+			super.addVegetable(tomato);
+		}
+	}
+
+	public class Olivie extends Salad {
+		private static final String name = "Оливье";
+
+		public String getName() {
+			return name;
+		}
+
+		Olivie(double potatoWeight, double tomatoWeight, double onionWeight) {
+			Vegetables potato = new Potato(potatoWeight);
+			super.addVegetable(potato);
+			Vegetables tomato = new Tomato(tomatoWeight);
+			super.addVegetable(tomato);
+			Vegetables onion = new Onion(onionWeight);
+			super.addVegetable(onion);
+		}
+	}
+
+	public static final class Chef {
+		public String makeSalad(Salad salad) {
+			return "Салат готов!";
+		}
+	}
+
+	public static class ProgramMenu {
+		public void chooseSalad() {
+
+		}
+
+		public void calculateCalory() {
+
+		}
+
+		public void sortVegetables() {
+
+		}
+	}
+}

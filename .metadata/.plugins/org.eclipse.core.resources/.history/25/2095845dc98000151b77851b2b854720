@@ -1,0 +1,65 @@
+import java.util.List;
+import java.util.Scanner;
+
+public class ProgramMenu {
+	private static void olivieChoose() {
+		Scanner inputStr = new Scanner(System.in);
+		double potatoWeight, tomatoWeight, onionWeight;
+		System.out.println("Введите количество картофеля в граммах: ");
+		potatoWeight = Double.parseDouble(inputStr.nextLine());
+		System.out.println("Введите количество томатов в граммах: ");
+		tomatoWeight = Double.parseDouble(inputStr.nextLine());
+		System.out.println("Введите количество лука в граммах: ");
+		onionWeight = Double.parseDouble(inputStr.nextLine());
+		inputStr.close();
+		Salad olivie = new Olivie(potatoWeight, tomatoWeight, onionWeight);
+	}
+
+	private static void cezarChoose() {
+		Scanner inputStr = new Scanner(System.in);
+		double potatoWeight, tomatoWeight;
+		System.out.println("Введите количество картофеля в граммах: ");
+		potatoWeight = Double.parseDouble(inputStr.nextLine());
+		System.out.println("Введите количество томатов в граммах: ");
+		tomatoWeight = Double.parseDouble(inputStr.nextLine());
+		inputStr.close();
+		Salad cezar = new Cezar(potatoWeight, tomatoWeight);
+		System.out.println("Состав салата: ");
+		List<Vegetables> cezarVegetables = cezar.getVegetablesForSalad();
+		for (int i = 0; i < cezarVegetables.size(); i++) {
+			System.out.println(cezarVegetables.get(i).getName() + " " + cezarVegetables.get(i).getWeight() + "гр. " + cezarVegetables.get(i).vegetableCalory());
+		}
+	}
+
+	public static void chooseSalad() {
+		Scanner inputStr = new Scanner(System.in);
+		String choose;
+
+		String[] menuList = { Cezar.name, Olivie.name };
+		System.out.println("Выберите салат для приготовления: ");
+		for (int i = 0; i < 2; i++) {
+			System.out.println(menuList[i] + " - " + (i + 1));
+		}
+		choose = inputStr.nextLine();
+		switch (choose) {
+		case "1":
+			cezarChoose();
+
+			break;
+		case "2":
+			olivieChoose();
+			break;
+		default:
+			break;
+		}
+		inputStr.close();
+	}
+
+	public void calculateCalory() {
+
+	}
+
+	public void sortVegetables() {
+
+	}
+}

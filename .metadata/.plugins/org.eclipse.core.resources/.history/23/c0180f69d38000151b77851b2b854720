@@ -1,0 +1,8 @@
+import java.io.IOException;
+
+public class ChefMain {
+	public static void main(String[] args) throws IOException {
+		System.out.println(Chef.makeSalad());
+		ProgramMenu.chooseSalad();
+	}
+}

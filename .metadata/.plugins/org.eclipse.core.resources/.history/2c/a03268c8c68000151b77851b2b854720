@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Salad {
+	private List<Vegetables> vegetablesForSalad = new ArrayList<Vegetables>();
+
+	public void addVegetable(Vegetables vegetable) {
+		this.vegetablesForSalad.add(vegetable);
+	}
+
+	public void sortVegetables() {
+
+	}
+
+	public void calculateCalory() {
+
+	}
+}

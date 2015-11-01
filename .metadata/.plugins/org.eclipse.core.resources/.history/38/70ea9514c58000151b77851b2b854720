@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class ChefMain {
+	public static void main(String[] args) {
+		Scanner inputStr = new Scanner(System.in);
+		String choose;
+		
+		String[] menuList = { Cezar.name, Olivie.name };
+		System.out.println("Выберите салат для приготовления: ");
+		for(int i = 0; i < 2; i++) {
+			System.out.println(menuList[i] + " - " + (i + 1));
+		}
+		choose = inputStr.nextLine();
+		ProgramMenu.chooseSalad(choose);
+		inputStr.close();
+	}
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+}

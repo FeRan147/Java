@@ -1,0 +1,7 @@
+public class Onion extends Vegetables {
+		Onion(double weight) {
+			super.setName("Ћук");
+			super.setWeight(weight);
+			super.setCalory(0.1);
+		}
+	}

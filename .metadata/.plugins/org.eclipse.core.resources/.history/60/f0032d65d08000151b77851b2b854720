@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+public final class ProgramMenu {
+	public static Scanner inputStr = new Scanner(System.in);
+	
+	public static void chooseSalad() {
+		String choose;
+
+		String[] menuList = { Cezar.name, Olivie.name };
+		System.out.println("¬ыберите салат дл€ приготовлени€: ");
+		for (int i = 0; i < 2; i++) {
+			System.out.println(menuList[i] + " - " + (i + 1));
+		}
+		choose = inputStr.nextLine();
+		switch (choose) {
+		case "1":
+			cezarChoose();
+			break;
+		case "2":
+			olivieChoose();
+			break;
+		default:
+			break;
+		}
+	}
+
+	private static void olivieChoose() {
+		Scanner inputStr = new Scanner(System.in);
+		double potatoWeight, tomatoWeight, onionWeight;
+		System.out.println("¬ведите количество картофел€ в граммах: ");
+		potatoWeight = Double.parseDouble(inputStr.nextLine());
+		System.out.println("¬ведите количество томатов в граммах: ");
+		tomatoWeight = Double.parseDouble(inputStr.nextLine());
+		System.out.println("¬ведите количество лука в граммах: ");
+		onionWeight = Double.parseDouble(inputStr.nextLine());
+		inputStr.close();
+		Salad olivie = new Olivie(potatoWeight, tomatoWeight, onionWeight);
+		saladComposition(olivie);
+	}
+
+	private static void cezarChoose() {
+		Scanner inputStr = new Scanner(System.in);
+		double potatoWeight, tomatoWeight;
+		System.out.println("¬ведите количество картофел€ в граммах: ");
+		potatoWeight = Double.parseDouble(inputStr.nextLine());
+		System.out.println("¬ведите количество томатов в граммах: ");
+		tomatoWeight = Double.parseDouble(inputStr.nextLine());
+		inputStr.close();
+		Salad cezar = new Cezar(potatoWeight, tomatoWeight);
+		saladComposition(cezar);
+	}
+	
+	public static void forFinder(Salad salad) {
+		for (int i = 0; i < salad.getVegetablesForSalad().size(); i++) {
+			System.out.println(salad.getVegetablesForSalad().get(i).getName() + " "
+					+ salad.getVegetablesForSalad().get(i).getWeight() + " гр.");
+		}
+	}
+
+	public static void saladComposition(Salad salad) {
+		System.out.println("—остав салата: ");
+		forFinder(salad);
+		System.out.println("Ёнергетическа€ ценность салата: " + salad.calculateCalory() + "к ал");
+		caloryVegetablesFinder(salad);
+	}
+
+	public static void caloryVegetablesFinder(Salad salad) {
+		String choose;
+
+		System.out.println(
+				"ƒл€ того чтобы произвести поиск овощей по диапозону калорийности нажмите 1, любой другой символ - выход из программы: ");
+		choose = inputStr.nextLine();
+		switch (choose) {
+		case "1":
+			double first, second;
+			System.out.println("¬ведите первое число диапозона: ");
+			first = Double.parseDouble(inputStr.nextLine());
+			System.out.println("¬ведите второе число диапозона: ");
+			second = Double.parseDouble(inputStr.nextLine());
+			for (int i = 0; i < salad.findCaloryVegetables(first, second).size(); i++) {
+				System.out.println(salad.getVegetablesForSalad().get(i).getName() + " "
+						+ salad.getVegetablesForSalad().get(i).getCalory() + " к ал");
+			}
+			break;
+		default:
+			break;
+		}
+	}
+}

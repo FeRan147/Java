@@ -1,0 +1,10 @@
+public class ChefMain {
+	public static void main(String[] args) {
+		try {
+			System.out.println(Chef.makeSalad());
+			ProgramMenu.chooseSalad();
+		} catch (NumberFormatException ex) {
+			System.out.println("Ошибка ввода/вывода!");
+		}
+	}
+}

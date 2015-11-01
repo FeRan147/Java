@@ -1,0 +1,172 @@
+import java.util.*;
+
+public class ChefMain {
+	public static void main(String[] args) {
+		Scanner inputStr = new Scanner(System.in);
+		String choose;
+		
+		String[] menuList = { Cezar.name, Olivie.name };
+		System.out.println("Выберите салат для приготовления: ");
+		for(int i = 0; i < 2; i++) {
+			System.out.println(menuList[i] + " - " + (i + 1));
+		}
+		choose = inputStr.nextLine();
+		ProgramMenu.chooseSalad(choose);
+		inputStr.close();
+	}
+
+	public abstract class Vegetables {
+		private String name;
+		private double weight;
+		private double calory;
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public void setWeight(double weight) {
+			this.weight = weight;
+		}
+
+		public void setCalory(double calory) {
+			this.calory = calory;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public double getWeight() {
+			return weight;
+		}
+
+		public double getCalory() {
+			return calory;
+		}
+
+	}
+
+	public class Potato extends Vegetables {
+		Potato(double weight) {
+			super.setName("Картофель");
+			super.setWeight(weight);
+			super.setCalory(1.0);
+		}
+	}
+
+	public class Tomato extends Vegetables {
+		Tomato(double weight) {
+			super.setName("Помидор");
+			super.setWeight(weight);
+			super.setCalory(0.5);
+		}
+	}
+
+	public class Onion extends Vegetables {
+		Onion(double weight) {
+			super.setName("Лук");
+			super.setWeight(weight);
+			super.setCalory(0.1);
+		}
+	}
+
+	public abstract class Salad {
+		private List<Vegetables> vegetablesForSalad = new ArrayList<Vegetables>();
+
+		public void addVegetable(Vegetables vegetable) {
+			this.vegetablesForSalad.add(vegetable);
+		}
+
+		public void sortVegetables() {
+
+		}
+
+		public void calculateCalory() {
+
+		}
+	}
+
+	public class Cezar extends Salad {
+		private static final String name = "Цезарь";
+
+		public String getName() {
+			return name;
+		}
+
+		Cezar(double potatoWeight, double tomatoWeight) {
+			Vegetables potato = new Potato(potatoWeight);
+			super.addVegetable(potato);
+			Vegetables tomato = new Tomato(tomatoWeight);
+			super.addVegetable(tomato);
+		}
+	}
+
+	public class Olivie extends Salad {
+		private static final String name = "Оливье";
+
+		public String getName() {
+			return name;
+		}
+
+		Olivie(double potatoWeight, double tomatoWeight, double onionWeight) {
+			Vegetables potato = new Potato(potatoWeight);
+			super.addVegetable(potato);
+			Vegetables tomato = new Tomato(tomatoWeight);
+			super.addVegetable(tomato);
+			Vegetables onion = new Onion(onionWeight);
+			super.addVegetable(onion);
+		}
+	}
+
+	public static final class Chef {
+		public String makeSalad(String choose) {
+			
+			return "Салат готов!";
+		}
+	}
+
+	public static class ProgramMenu {
+		private static void olivieChoose() {
+			Scanner inputStr = new Scanner(System.in);
+			double potatoWeight, tomatoWeight, onionWeight;
+			System.out.println("Введите количество картофеля в граммах: ");
+			potatoWeight = Double.parseDouble(inputStr.nextLine());
+			System.out.println("Введите количество томатов в граммах: ");
+			tomatoWeight = Double.parseDouble(inputStr.nextLine());
+			System.out.println("Введите количество лука в граммах: ");
+			onionWeight = Double.parseDouble(inputStr.nextLine());
+			inputStr.close();
+			Salad olivie = new Olivie(potatoWeight, tomatoWeight, onionWeight);
+		}
+		private static void cezarChoose() {
+			Scanner inputStr = new Scanner(System.in);
+			double potatoWeight, tomatoWeight;
+			System.out.println("Введите количество картофеля в граммах: ");
+			potatoWeight = Double.parseDouble(inputStr.nextLine());
+			System.out.println("Введите количество томатов в граммах: ");
+			tomatoWeight = Double.parseDouble(inputStr.nextLine());
+			inputStr.close();
+			Salad cezar = new Cezar(potatoWeight, tomatoWeight);
+		}
+		public static void chooseSalad(String choose) {
+			switch (choose) {
+			case "1":
+				olivieChoose();
+				break;
+			case "2":
+				cezarChoose();
+				break;
+			default:
+				break;
+			}
+		}
+
+		public void calculateCalory() {
+
+		}
+
+		public void sortVegetables() {
+
+		}
+	}
+}

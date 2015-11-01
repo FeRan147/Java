@@ -1,0 +1,7 @@
+public class Tomato extends Vegetables {
+	Tomato(double weight) {
+		super.setName("Помидор");
+		super.setWeight(weight);
+		super.setCalory(0.5);
+	}
+}

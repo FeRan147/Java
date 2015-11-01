@@ -1,0 +1,6 @@
+public final class Chef {
+	public String makeSalad(String choose) {
+
+		return "Салат готов!";
+	}
+}

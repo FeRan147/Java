@@ -1,0 +1,34 @@
+public abstract class Vegetables {
+	private String name;
+	private double weight;
+	private double calory;
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	public void setCalory(double calory) {
+		this.calory = calory;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public double getCalory() {
+		return calory;
+	}
+
+	public double vegetableCalory() {
+		return weight * calory;
+	}
+
+}
